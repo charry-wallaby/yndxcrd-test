@@ -1,0 +1,9 @@
+@keyframes rotate-center {
+    0% { transform: rotate(0);}
+    100% { transform: rotate(360deg);}
+}
+
+@keyframes ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}

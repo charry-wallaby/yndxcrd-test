@@ -1,0 +1,113 @@
+.stages {
+    padding: 100px 0;
+}
+
+.stages__title {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    max-width: fit-content;
+    column-gap: 20px;
+    margin-bottom: 54px;
+}
+
+.stages__title h2:first-child {
+    grid-column: 1 / 3;
+}
+
+.stages__title p {
+    align-self: center;
+    max-width: 280px;
+    font-size: 20px;
+}
+
+.stages__list {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    transition: .6s ease;
+    scroll-behavior: smooth;
+}
+
+.stages__item {
+    display: flex;
+    min-height: 112px;
+}
+
+.stages__item_wide {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column: 1 / 3;
+    column-gap: 20px;
+}
+
+.stages__item_long {
+    grid-row: 1 / 3;
+    grid-column: 3 / 4;
+}
+
+.stages__text {
+    padding: 20px 21px 20px 20px;
+    box-sizing: border-box;
+    height: 100%;
+    display: flex;
+    gap: 16px;
+    position: relative;
+    background-image: url("../../images/stage-bg1.webp");
+    background-size: cover;
+    z-index: 2;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: -1px;
+}
+
+.stages__text::before {
+    content: attr(data-number);
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background-color: var(--color-white);
+    border-radius: 50%;
+}
+
+.stages__text::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url("../../images/stage-bg2.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+    mix-blend-mode: color-burn;
+    z-index: 1;
+}
+
+.stages__item:last-child {
+    grid-column: 2 / 4;
+    grid-row: 3 / 4;
+    display: grid;
+    position: relative;
+    z-index: 2;
+}
+
+.stages__item:last-child .stages__text {
+    padding-right: 320px;
+}
+
+.stages__list-image {
+    position: absolute;
+    bottom: 0;
+    right: -63px;
+    width: 100%;
+    max-width: 400px;
+    z-index: 3;
+}

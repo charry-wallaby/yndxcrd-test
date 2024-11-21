@@ -1,0 +1,90 @@
+html {
+    overflow-x: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: var(--font-family);
+    font-size: 16px;
+    line-height: 1.2;
+    color: var(--color-main);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    font-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 1366px;
+    margin: 0 auto;
+    padding-left: 72px;
+    padding-right: 72px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* width */
+body::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+body::-webkit-scrollbar-track {
+    background: var(--color-white);
+}
+
+/* Handle */
+body::-webkit-scrollbar-thumb {
+    background: var(--color-dark);
+}
+
+/* Handle on hover */
+body::-webkit-scrollbar-thumb:hover {
+    background: var(--color-gray);
+}
+
+@media (max-width: 991px) {
+    .container {
+        padding-left: 48px;
+        padding-right: 48px;
+    }
+}
+
+@media (max-width: 575px) {
+    .container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+/* components */
+@import "components/header.css";
+@import "components/footer.css";
+@import "components/button.css";
+@import "components/ticker.css";
+@import "components/carousel.css";
+
+/* sections */
+@import "blocks/intro.css";
+@import "blocks/info.css";
+@import "blocks/stages.css";
+@import "blocks/participants.css";
