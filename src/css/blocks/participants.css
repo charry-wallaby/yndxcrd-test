@@ -66,6 +66,10 @@
 }
 
 @media (max-width: 991px) {
+    .participants {
+        padding: 60px 0 136px;
+    }
+
     .participants__container {
         padding-bottom: 36px
     }
@@ -73,6 +77,10 @@
     .participants__item {
         width: calc(100% / 2 - 10px);
         padding: 0 27px;
+    }
+
+    .participants__title {
+        margin-bottom: 40px;
     }
 }
 

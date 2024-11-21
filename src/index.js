@@ -7,3 +7,4 @@ import './css/utils/animations.css';
 import './css/main.css';
 
 import './js/carousel.js';
+import './js/stages.js';

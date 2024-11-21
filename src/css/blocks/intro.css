@@ -29,7 +29,7 @@
 
 .intro__content {
     position: relative;
-    z-index: 5;
+    z-index: 6;
     width: 100%;
     max-width: 542px;
 }
@@ -128,4 +128,122 @@
     background-position: center center;
     background-repeat: no-repeat;
     z-index: 5;
+}
+
+@media (max-width: 1179px) and (min-width: 992px) {
+    .intro__decor-figure1 {
+        max-height: 86px;
+        max-width: 59px;
+    }
+
+    .intro__decor-figure2 {
+        max-height: 154px;
+        max-width: 131px;
+        right: 221px;
+    }
+
+    .intro__decor-figure3 {
+        max-height: 180px;
+        max-width: 90px;
+        right: 290px;
+        top: 400px;
+    }
+
+    .intro__decor-figure4 {
+        max-height: 174px;
+        max-width: 95px;
+        right: 70px;
+        top: 320px;
+    }
+
+    .intro__decor-city {
+        height: 315px;
+        width: 1194px;
+        left: 60%;
+    }
+
+    .intro__decor-city:before {
+        right: 16px;
+    }
+}
+
+@media (max-width: 991px) {
+    .intro__container {
+        display: flex;
+        justify-content: center;
+        padding-bottom: 291px;
+    }
+
+    .intro__content {
+        max-width: 335px;
+    }
+
+    .intro__text {
+        margin-bottom: 32px;
+    }
+
+    .intro__buttons {
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .intro__decor-circle {
+        top: auto;
+        right: 0;
+        bottom: 37px;
+    }
+
+    .intro__decor-figure1 {
+        display: none;
+    }
+
+    .intro__decor-figure2 {
+        width: 106px;
+        height: 121px;
+        right: 131px;
+    }
+
+    .intro__decor-figure3 {
+        width: 47px;
+        height: 116px;
+        right: 252px;
+        bottom: 117px;
+        top: auto;
+    }
+
+    .intro__decor-figure4 {
+        width: 46px;
+        height: 104px;
+        right: 72px;
+        bottom: 174px;
+        top: auto;
+    }
+
+    .intro__decor-city {
+        width: 874px;
+        height: 252px;
+        transform: translateX(0%);
+        left: auto;
+        right: -109px;
+    }
+
+    .intro__decor-city:before {
+        right: 3px;
+    }
+}
+
+@media (max-width: 575px) {
+    .intro__container {
+        padding-top: 90px;
+    }
+
+    .intro__text {
+        text-align: left;
+    }
+
+    .intro__decor-circle {
+        max-height: 350px;
+        max-width: 350px;
+        right: 22px;
+    }
 }

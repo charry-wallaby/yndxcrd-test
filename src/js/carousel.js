@@ -3,93 +3,81 @@ const rightCarouselButton = document.querySelector('.carousel__button_right');
 const carouselContainer = document.querySelector('.participants__list');
 const carouselCountCurrent = document.querySelector('.carousel__count-current');
 
-let visibleSlides = 1;
-let scrollCarouselCounter = visibleSlides;
-let timer = null;
+let visibleSlides = 1; // Количество видимых слайдов
+let scrollCarouselCounter = 0; // Индекс первого видимого слайда
+let totalSlides = 6; // Общее количество слайдов
+let autoScrollTimer = null; // Таймер для автопрокрутки
 
 const getVisibleSlidesCount = () => {
     if (window.innerWidth >= 1024) {
-        return 3;
+        return 3; // Десктоп: 3 слайда
     } else if (window.innerWidth >= 768) {
-        return 2;
+        return 2; // Планшет: 2 слайда
     } else {
-        return 1;
+        return 1; // Мобилка: 1 слайд
     }
 };
-
 const initializeCarousel = () => {
     visibleSlides = getVisibleSlidesCount();
-    scrollCarouselCounter = visibleSlides;
-    changeCountCurrent(scrollCarouselCounter);
-    controlCarouselButtons();
+    scrollCarouselCounter = 0;
+    updateCountDisplay();
+    startAutoScroll();
 };
 
-const changeCountCurrent = (counter) => {
-    carouselCountCurrent.textContent = counter.toString();
+const updateCountDisplay = () => {
+    const lastVisibleSlide = ((scrollCarouselCounter + visibleSlides - 1) % totalSlides) + 1;
+    carouselCountCurrent.textContent = `${lastVisibleSlide}`;
 };
 
-const controlCarouselButtons = () => {
-    if (scrollCarouselCounter >= 6) {
-        disableButton(rightCarouselButton);
-    } else if (scrollCarouselCounter <= visibleSlides) {
-        disableButton(leftCarouselButton);
-    } else {
-        activateButton(rightCarouselButton);
-        activateButton(leftCarouselButton);
-    }
-};
-
-const swipeContainer = (side, breakpoint) => {
+const swipeContainer = (side, step) => {
     if (side === 'right') {
-        carouselContainer.scrollLeft += breakpoint;
-        scrollCarouselCounter++;
+        scrollCarouselCounter += visibleSlides;
+
+        if (scrollCarouselCounter >= totalSlides) {
+            scrollCarouselCounter = 0;
+            carouselContainer.scrollLeft = 0;
+        } else {
+            carouselContainer.scrollLeft += step;
+        }
     } else {
-        carouselContainer.scrollLeft -= breakpoint;
-        scrollCarouselCounter--;
+        scrollCarouselCounter -= visibleSlides;
+
+        if (scrollCarouselCounter < 0) {
+            scrollCarouselCounter = totalSlides - visibleSlides;
+            carouselContainer.scrollLeft = carouselContainer.scrollWidth - carouselContainer.offsetWidth;
+        } else {
+            carouselContainer.scrollLeft -= step;
+        }
     }
-    changeCountCurrent(scrollCarouselCounter);
-    controlCarouselButtons();
+
+    updateCountDisplay();
 };
 
-const disableButton = (button) => {
-    button.classList.add('carousel__button_disabled');
-    button.disabled = true;
+const startAutoScroll = () => {
+    if (autoScrollTimer) clearInterval(autoScrollTimer);
+
+    autoScrollTimer = setInterval(() => {
+        const step = carouselContainer.scrollWidth / totalSlides * visibleSlides;
+        swipeContainer('right', step);
+    }, 4000);
 };
 
-const activateButton = (button) => {
-    if (button.classList.contains('carousel__button_disabled')) {
-        button.classList.remove('carousel__button_disabled');
-        button.disabled = false;
-    }
+const stopAutoScroll = () => {
+    clearInterval(autoScrollTimer);
 };
 
-const changeActiveCarouselItem = () => {
-    const containerRect = carouselContainer.getBoundingClientRect();
-    const items = Array.from(carouselContainer.children);
-
-    const activeItemIndex = items.findIndex((item) => {
-        const itemRect = item.getBoundingClientRect();
-        return Math.abs(itemRect.left - containerRect.left) < 40;
-    });
-
-    if (activeItemIndex !== -1) {
-        scrollCarouselCounter = visibleSlides + activeItemIndex;
-        changeCountCurrent(scrollCarouselCounter);
-        controlCarouselButtons();
-    }
-};
-
-carouselContainer.addEventListener('scroll', () => {
-    clearTimeout(timer);
-
-    timer = setTimeout(() => {
-        clearTimeout(timer);
-        changeActiveCarouselItem();
-    }, 100);
+leftCarouselButton.addEventListener('click', () => {
+    const step = carouselContainer.scrollWidth / totalSlides * visibleSlides;
+    swipeContainer('left', step);
+    stopAutoScroll();
+    startAutoScroll();
 });
-
-leftCarouselButton.addEventListener('click', () => swipeContainer('left', 400));
-rightCarouselButton.addEventListener('click', () => swipeContainer('right', 400));
+rightCarouselButton.addEventListener('click', () => {
+    const step = carouselContainer.scrollWidth / totalSlides * visibleSlides;
+    swipeContainer('right', step);
+    stopAutoScroll();
+    startAutoScroll();
+});
 
 window.addEventListener('resize', () => {
     initializeCarousel();

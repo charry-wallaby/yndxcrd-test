@@ -62,10 +62,16 @@ body::-webkit-scrollbar-thumb:hover {
     background: var(--color-gray);
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1179px) {
     .container {
         padding-left: 48px;
         padding-right: 48px;
+    }
+}
+
+@media (max-width: 991px){
+    body::-webkit-scrollbar {
+        display: none;
     }
 }
 

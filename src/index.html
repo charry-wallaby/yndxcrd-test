@@ -1,11 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Клуб четырех коней</title>
         <meta name="description" content="Превратите уездный город в столицу земного шара">
         <meta name="keywords" content="клуб четырех коней, клуб, четырех коней, клуб четырех коней, клуб, четырех коней, клуб, четырех коней, клуб, четырех коней">
+        <link rel="icon" type="image/png" href="/images/favicon/favicon-96x96.png" sizes="96x96" />
+        <link rel="icon" type="image/svg+xml" href="/images/favicon/favicon.svg" />
+        <link rel="shortcut icon" href="/images/favicon/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png" />
+        <link rel="manifest" href="/images/favicon/site.webmanifest" />
         <link rel="stylesheet" href="https://unpkg.com/normalize.css">
         <link rel="stylesheet" href="styles.css">
     </head>
@@ -37,11 +42,11 @@
                             Оплатите взнос на телеграммы для организации Международного васюкинского турнира по шахматам
                         </p>
                         <div class="intro__buttons">
-                            <a href="#" class="button button__primary">
-                                Поддержать <br/>шахматную мысль
+                            <a href="#support" class="button button__primary">
+                                Поддержать <br/>&nbsp;шахматную мысль
                             </a>
-                            <a href="#" class="button button__secondary">
-                                Подробнее <br/>о турнире
+                            <a href="#details" class="button button__secondary">
+                                Подробнее <br/>&nbsp;о турнире
                             </a>
                         </div>
                     </div>
@@ -67,20 +72,21 @@
 
             <section class="info">
                 <div class="container info__container">
-                    <div class="info__top">
-                        <h3 class="info__title">
-                            Чтобы поддержать Международный васюкинский 
-                            турнир посетите лекцию на тему: 
+                    <div class="info__top" id="support">
+                        <h3 class="info__top-title">
+                            Чтобы поддержать Международный васюкинский турнир
+                            <span class="info__top-title_image"></span>
+                            посетите лекцию на тему: 
                             <strong class="text-red">«Плодотворная дебютная идея»</strong>
                         </h3>
                         <img class="info__top-image" src="images/info1.webp" alt="" loading="lazy" />
                     </div>
-                    <div class="info__bottom">
+                    <div class="info__bottom" id="details">
                         <div class="info__bottom-left">
                             <img class="info__bottom-left-image" src="images/info2.webp" alt="" loading="lazy" />
                         </div>
                         <div class="info__bottom-right">
-                            <h3 class="info__title">
+                            <h3 class="info__bottom-title">
                                 и Сеанс <strong class="text-red">одновременной игры в шахматы на 160 досках</strong> гроссмейстера О. Бендера
                             </h3>
                             <div class="info__table">
@@ -166,40 +172,57 @@
                             Будущие источники обогащения васюкинцев
                         </p>
                     </div>
-                    <ul class="stages__list">
+                    <div class="stages__wrap">
                         <img class="stages__list-image" src="images/airplane.webp" alt="Airplane" loading="lazy" />
-                        <li class="stages__item stages__item_wide">
-                            <div class="stages__text" data-number="1">
-                                Строительство железнодорожной магистрали Москва-Васюки
-                            </div>
-                            <div class="stages__text" data-number="2">
-                                Открытие фешенебельной гостиницы «Проходная пешка» и других небоскрёбов
-                            </div>
-                        </li>
-                        <li class="stages__item stages__item_long">
-                            <div class="stages__text" data-number="3">
-                                Поднятие сельского хозяйства в радиусе на тысячу километров: производство овощей, фруктов, икры, шоколадных конфет
-                            </div>
-                        </li>
-                        <li class="stages__item stages__item_wide">
-                            <div class="stages__text" data-number="4">
-                                Строительство дворца для турнира
-                            </div>
-                            <div class="stages__text" data-number="5">
-                                Размещение гаражей для гостевого автотранспорта
-                            </div>
-                        </li>
-                        <li class="stages__item">
-                            <div class="stages__text" data-number="6">
-                                Постройка сверхмощной радиостанции для передачи всему миру сенсационных результатов
-                            </div>
-                        </li>
-                        <li class="stages__item">
-                            <span class="stages__text" data-number="7">
-                                Создание аэропорта «Большие Васюки» с регулярным отправлением почтовых самолётов и дирижаблей во все концы света, включая Лос-Анжелос и Мельбурн
-                            </span>
-                        </li>
-                    </ul>
+                        <ul class="stages__list">
+                            <li class="stages__item stages__item_wide">
+                                <div class="stages__text" data-number="1">
+                                    Строительство железнодорожной магистрали Москва-Васюки
+                                </div>
+                                <div class="stages__text" data-number="2">
+                                    Открытие фешенебельной гостиницы «Проходная пешка» и других небоскрёбов
+                                </div>
+                            </li>
+                            <li class="stages__item stages__item_long">
+                                <div class="stages__text" data-number="3">
+                                    Поднятие сельского хозяйства в радиусе на тысячу километров: производство овощей, фруктов, икры, шоколадных конфет
+                                </div>
+                            </li>
+                            <li class="stages__item stages__item_wide">
+                                <div class="stages__text" data-number="4">
+                                    Строительство дворца для турнира
+                                </div>
+                                <div class="stages__text" data-number="5">
+                                    Размещение гаражей для гостевого автотранспорта
+                                </div>
+                            </li>
+                            <li class="stages__item">
+                                <div class="stages__text" data-number="6">
+                                    Постройка сверхмощной радиостанции для передачи всему миру сенсационных результатов
+                                </div>
+                            </li>
+                            <li class="stages__item">
+                                <span class="stages__text" data-number="7">
+                                    Создание аэропорта «Большие Васюки» с регулярным отправлением почтовых самолётов и дирижаблей во все концы света, включая Лос-Анжелос и Мельбурн
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="stages__navigation">
+                        <button class="stages__button stages__button_prev stages__button_disabled">
+                            <img src="images/arrow.svg" alt="">
+                        </button>
+                        <ul class="stages__pagination">
+                            <li class="stages__pagination-button stages__pagination-button_active"></li>
+                            <li class="stages__pagination-button"></li>
+                            <li class="stages__pagination-button"></li>
+                            <li class="stages__pagination-button"></li>
+                            <li class="stages__pagination-button"></li>
+                        </ul>
+                        <button class="stages__button stages__button_next">
+                            <img src="images/arrow.svg" alt="">
+                        </button>
+                    </div>
                 </div>
             </section>
 

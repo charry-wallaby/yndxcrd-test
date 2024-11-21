@@ -27,18 +27,38 @@
     background-color: var(--color-dark);
 }
 
-.button__primary:hover {
-    color: var(--color-dark);
-    background-color: var(--color-yellow);
-    border-color: var(--color-yellow);
-}
-
 .button__secondary {
     color: var(--color-dark);
     background-color: transparent;
 }
 
-.button__secondary:hover {
-    color: var(--color-white);
-    background-color: var(--color-dark);
+@media (min-width: 992px) {
+    .button__primary:hover {
+        color: var(--color-dark);
+        background-color: var(--color-yellow);
+        border-color: var(--color-yellow);
+    }
+
+    .button__secondary:hover {
+        color: var(--color-white);
+        background-color: var(--color-dark);
+    }
+}
+
+@media (max-width: 991px) {
+    .button {
+        border: none;
+        min-height: 47px;
+        padding: 15px;
+    }
+
+    .button br {
+        display: none;
+    }
+
+    .button__secondary {
+        background-color: var(--color-white);
+        color: var(--color-dark);
+        opacity: .9;
+    }
 }
